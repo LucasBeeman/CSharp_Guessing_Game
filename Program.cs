@@ -16,7 +16,6 @@ namespace RandomNumberGuesser
             int max = size;
             int miss = 0;
             int guessNum = 0;
-            Console.WriteLine("The answer is " + answer);
 
             while (guess != answer)
             {
@@ -35,8 +34,10 @@ namespace RandomNumberGuesser
                 guessNum++;
                 Console.WriteLine(guessList[guessNum - 1]);
             }
-            Console.WriteLine("\nThe correct number is " + answer);
+            guessList.Remove(guessList[guessList.Count -1]);
+            Console.WriteLine("The correct number is " + answer);
             Console.WriteLine("\nThe bot has missed " + miss + " times");
+            Console.WriteLine("\nHeres a list of all of the missed guesses: [" + string.Join(", ", guessList) + "]");
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadLine();
         }
